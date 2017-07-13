@@ -1,0 +1,6 @@
+Thu, 13 Jul 2017 01:02:00 -0500
+README.rdoc	Thu, 13 Jul 2017 00:42:50 -0500
+app/controllers/application_controller.rb	Thu, 13 Jul 2017 00:42:50 -0500
+app/controllers/home_controller.rb	Thu, 13 Jul 2017 00:51:50 -0500
+app/helpers/application_helper.rb	Thu, 13 Jul 2017 00:42:50 -0500
+app/helpers/home_helper.rb	Thu, 13 Jul 2017 00:51:51 -0500
