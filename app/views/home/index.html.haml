@@ -1,3 +1,32 @@
+:javascript
+	/* resize the image(s) on page load */
+	$(document).ready(function() {
+		resize_all_parallax();
+	});
+
+	/* resize the image(s) on page resize */
+	$(window).on('resize', function(){
+		resize_all_parallax();
+	});
+
+	/* keep all of your resize function calls in one place so you don't have to edit them twice (on page load and resize) */
+	function resize_all_parallax() {
+		var div_id = 'img1'; /* the ID of the div that you're resizing */
+		var img_w = 1000; /* the width of your image, in pixels */
+		var img_h = 864; /* the height of your image, in pixels */
+		resize_parallax(div_id,img_w,img_h);
+	}
+
+	/* this resizes the parallax image down to an appropriate size for the viewport */
+	function resize_parallax(div_id,img_w,img_h) {
+		var div = $('#' + div_id);
+		var divwidth = div.width();
+		if (divwidth < 769) { var pct = (img_h/img_w) * 105; } /* show full image, plus a little padding, if on static mobile view */
+		else { var pct = 60; } /* this is the HEIGHT as percentage of the current div WIDTH. you can change it to show more (or less) of your image */
+		var newheight = Math.round(divwidth * (pct/100));
+		newheight = newheight  + 'px';
+		div.height(newheight);
+	}
 .container
 	.row
 		.col-md-6
@@ -9,7 +38,7 @@
 				%a#bookbtn{:href => "https://my.setmore.com/bookanappointmentv3.do?uniqueKey=a7b79ae1-8af2-44ce-af18-0204b814dc7f", :role => "button", :target => "_blank"} Book now
 .row
 	.col-md-12
-		%img.img-responsive{:src => "assets/nail.png", :id=>"main_imgs"}
+		#img1.parallax_img{:style=>"background-image: url('assets/nail.png');"}
 .row
 	.col-md-12
 		.description
@@ -70,7 +99,7 @@
 						%p{:style => "font-size: 17px; font-family: open sans-serif;"} It's never too early to give your kid a fabulous makeover for fun. And what better way to start than with a fancy pair of nails?
 .row
 	.col-md-12
-		%img.img-responsive{:src => "assets/pedicure.png", :id=>"main_imgs"}
+		#img1.parallax_img{:style=>"background-image: url('assets/pedicure.png');"}
 .row
 	.col-md-12
 		.description
@@ -121,7 +150,7 @@
 						%p{:style => "font-size: 17px;"} Quick time saving polish removal, trim, shape and polish.
 .row
 	.col-md-12
-		%img.img-responsive{:src => "assets/manipedi.png", :id=>"main_imgs"}
+		#img1.parallax_img{:style=>"background-image: url('assets/manipedi.png');"}
 .row
 	.col-md-12
 		.description
@@ -180,7 +209,7 @@
 						%p{:style => "font-size: 17px;"} Do you like matching things? if you feel matchie get twinsies.
 .row
 	.col-md-12
-		%img.img-responsive{:src => "assets/wax.png", :id=>"main_imgs"}
+		#img1.parallax_img{:style=>"background-image: url('assets/wax.png');"}
 .row
 	.col-md-12
 		.description
@@ -236,7 +265,7 @@
 						%p#service_name 20
 .row
 	.col-md-12
-		%img.img-responsive{:src => "assets/massage.png", :id=>"main_imgs"}
+		#img1.parallax_img{:style=>"background-image: url('assets/massage.png');"}
 .row
 	.col-md-12
 		.description
@@ -295,11 +324,11 @@
 		%p{:style => "text-align: center;"} Saturday 10am-7pm
 		%p{:style => "text-align: center; margin-bottom: 10%;"} Sunday 10am-6pm
 .row{:style=>"background-color: #b7b7b7;"}
-	.col-md-6{:style=>"padding: 20px;"}
+	.col-xs-6{:style=>"padding: 20px;"}
 		%h1{:id=>"footertext"} Naked Nail
 		%p{:id=>"copyright"} 2017 naked nail salon. all right reserved.
-	.col-md-6{:style=>"padding: 20px;"}
-		%a#socialbtn{:href => "https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.yelp.com%2Fbiz%2Fnaked-nails-and-spa-chicago-2%3Futm_source%3Dishare&h=ATN4BpyOthHItcrIcQPrEFZptcTWlDG4RnfoEO31GZQfwo-jE3dGAs68RB8iFbSPBROhhe7k6jbqRRCUGSwDnT0ssrXAa1TBDkXRSXF1sTixKASDdyTkHpboeDs5JWpVKy9C6P09z4fqlboBIAkx7w", :style => "float:none;", :target => "_blank"}
-			%img{:border => "none", :src => "assets/yelp.png", :style => "width: 90px;"}
-		%a#socialbtn{:href => "https://www.facebook.com/Naked-nail-salon-757671347727946/", :style => "float:none;", :target => "_blank"}
-			%img{:border => "none", :src => "assets/facebook.png", :style => "width: 90px;"}
+	.col-xs-6{:style=>"padding: 20px;"}
+		%a{:href => "https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.yelp.com%2Fbiz%2Fnaked-nails-and-spa-chicago-2%3Futm_source%3Dishare&h=ATN4BpyOthHItcrIcQPrEFZptcTWlDG4RnfoEO31GZQfwo-jE3dGAs68RB8iFbSPBROhhe7k6jbqRRCUGSwDnT0ssrXAa1TBDkXRSXF1sTixKASDdyTkHpboeDs5JWpVKy9C6P09z4fqlboBIAkx7w", :style => "float:right; padding: 10px;", :target => "_blank"}
+			%img{:border => "none", :src => "assets/yelp.png", :style => "width: 60px;"}
+		%a{:href => "https://www.facebook.com/Naked-nail-salon-757671347727946/", :style => "float:right; padding: 10px;", :target => "_blank"}
+			%img{:border => "none", :src => "assets/facebook.png", :style => "width: 60px;"}

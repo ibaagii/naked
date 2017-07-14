@@ -8,7 +8,7 @@
 }
 a#bookbtn {
 	color: #000;
-	padding: 10px 36px;
+	padding: 14px 30px;
 	border: 1px solid;
 	background-color: transparent;
 	outline: none;
@@ -17,6 +17,7 @@ a#bookbtn {
 	position: fixed;
 	top: 1em;
 	right: 1em;
+	font-size: 20px;
 }
 #main_imgs {
 	width: 100%;
@@ -87,4 +88,16 @@ a#bookbtn {
 	-webkit-transition: all 2s ease-in-out;
 	transition: all 2s ease-in-out;
 	z-index: 1;
+}
+.parallax_img { 
+	height: 500px;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+}
+@media screen and (max-width: 768px) {
+	.parallax_img { 
+		background-attachment: inherit;
+	}
 }
