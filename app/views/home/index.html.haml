@@ -11,10 +11,12 @@
 
 	/* keep all of your resize function calls in one place so you don't have to edit them twice (on page load and resize) */
 	function resize_all_parallax() {
-		var div_id = 'img1'; /* the ID of the div that you're resizing */
-		var img_w = 1000; /* the width of your image, in pixels */
-		var img_h = 864; /* the height of your image, in pixels */
-		resize_parallax(div_id,img_w,img_h);
+		var div_id = ["img1", "img2", "img3", "img4", "img5"]; /* the ID of the div that you're resizing */
+		for(var i=0; i<div_id.length; i++){
+			var img_w = 1000; /* the width of your image, in pixels */
+			var img_h = 900; /* the height of your image, in pixels */
+			resize_parallax(div_id[i],img_w,img_h);
+		}
 	}
 
 	/* this resizes the parallax image down to an appropriate size for the viewport */
@@ -99,7 +101,7 @@
 						%p{:style => "font-size: 17px; font-family: open sans-serif;"} It's never too early to give your kid a fabulous makeover for fun. And what better way to start than with a fancy pair of nails?
 .row
 	.col-md-12
-		#img1.parallax_img{:style=>"background-image: url('assets/pedicure.png');"}
+		#img2.parallax_img{:style=>"background-image: url('assets/pedicure.png');"}
 .row
 	.col-md-12
 		.description
@@ -150,7 +152,7 @@
 						%p{:style => "font-size: 17px;"} Quick time saving polish removal, trim, shape and polish.
 .row
 	.col-md-12
-		#img1.parallax_img{:style=>"background-image: url('assets/manipedi.png');"}
+		#img3.parallax_img{:style=>"background-image: url('assets/manipedi.png');"}
 .row
 	.col-md-12
 		.description
@@ -209,7 +211,7 @@
 						%p{:style => "font-size: 17px;"} Do you like matching things? if you feel matchie get twinsies.
 .row
 	.col-md-12
-		#img1.parallax_img{:style=>"background-image: url('assets/wax.png');"}
+		#img4.parallax_img{:style=>"background-image: url('assets/wax.png');"}
 .row
 	.col-md-12
 		.description
@@ -265,7 +267,7 @@
 						%p#service_name 20
 .row
 	.col-md-12
-		#img1.parallax_img{:style=>"background-image: url('assets/massage.png');"}
+		#img5.parallax_img{:style=>"background-image: url('assets/massage.png');"}
 .row
 	.col-md-12
 		.description
